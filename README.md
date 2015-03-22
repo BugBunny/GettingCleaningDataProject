@@ -41,11 +41,10 @@ The script was written using R 3.1.2 under Windows 7 SP1.
 
 It performs 5 tasks successively:
 
-1. Merging the *training* and the *test* datasets to create one data set.
-2. Extracting the mean and standard deviation features of each measurement. 
-3. Converting the *Activity* variable to a factor with descriptive activity names.
-4. Defining the names (features) of the measurements to be descriptive variable names.
-    (At this point the script writes the disaggregated data to a file).
-5. Creating and writing to file an aggregated dataset containing the average of each of the measurements for each *Activity* and  *Subject* pairing.
+1. Merging the *training* and the *test* datasets to create one data set. This step also prefixes the  measurements with *Subject* and *Activity* identifiers obtained from the *subject* and *y* tables.
+2. Extracting the mean and standard deviation *features* of each measurement. 
+3. Converting the *Activity* variable to a factor with descriptive activity names obtained from  the *activity_labels* table.
+4. Setting the names of the measurement variables to be descriptive variable names obtained from the *features* table. (At this point the script writes the disaggregated data to a file).
+5. Creating and writing to file an aggregated dataset containing the averages of the measures calulated across each *Activity* by *Subject* pairing. This dataset is in **wide** format (i.e. a file with the averages of the whole series of mean measurements for each *Activity* by *Subject* pairing on a single record).
 
-Further comments on detailed aspects of the steps are included in the **run_analysis.R** script file.
+Further comments on detailed aspects of some of these steps are included in the **run_analysis.R** script file.
