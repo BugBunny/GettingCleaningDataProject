@@ -75,9 +75,9 @@ data <- aggregate(data[,3:72], by = list(as.numeric(data$Subject),
 data$Activity <- factor(data$Activity, as.character(activity_labels$V1),
                         labels = as.character(activity_labels$V2))
 colnames(data) <- c("Subject", "Activity", feature_labels)
-data$Activity <- factor(data$Activity, as.character(activity_labels$V1),
-                        labels = as.character(activity_labels$V2))
+# Sort back into activity within Subject
 library(dplyr)
 data <- arrange(data, Subject, Activity)
+
 write.table(data, file = "Getting_Cleaning_Project_Data.txt",
             row.names = FALSE)
